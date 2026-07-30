@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://wbqlrulhr1ur"]
+
+[ext_resource type="Script" uid="uid://c4h04qlh6f4tn" path="res://scripts/Feedback & Visual/cursor.gd" id="1_8kafl"]
+[ext_resource type="Texture2D" uid="uid://cyrmj47ajj56p" path="res://assets/Cursor/hand_thin_open.png" id="2_3evkt"]
+[ext_resource type="Texture2D" uid="uid://by6m2qfg1psue" path="res://assets/Cursor/hand_thin_closed.png" id="3_7q1fa"]
+
+[node name="Cursor" type="Node2D" unique_id=107945029]
+script = ExtResource("1_8kafl")
+tex_open_cursor = ExtResource("2_3evkt")
+tex_close_cursor = ExtResource("3_7q1fa")
+
+[node name="CursorSprite" type="Sprite2D" parent="." unique_id=1420978951]
+z_index = 999
+texture = ExtResource("2_3evkt")

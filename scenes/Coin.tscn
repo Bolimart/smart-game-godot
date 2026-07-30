@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cw52oyeqng2gu"]
+
+[ext_resource type="Script" uid="uid://bph1ygdegh6cy" path="res://scripts/Coin/coin.gd" id="1_i64fm"]
+[ext_resource type="Texture2D" uid="uid://brspt331w2qbo" path="res://assets/Coin/1cent.svg" id="2_6jg3o"]
+[ext_resource type="Texture2D" uid="uid://ckvq5ss3rg5mg" path="res://assets/Coin/2cent.svg" id="3_rsyy1"]
+[ext_resource type="Texture2D" uid="uid://brkfuxr8hj8bp" path="res://assets/Coin/5cent.svg" id="4_y8m1o"]
+[ext_resource type="Texture2D" uid="uid://d263r48h0dv3a" path="res://assets/Coin/10cent.svg" id="5_sgv4e"]
+[ext_resource type="Texture2D" uid="uid://dxfi5efd3mfl7" path="res://assets/Coin/20cent.svg" id="6_0kllm"]
+[ext_resource type="Texture2D" uid="uid://dy1e2inrh3yes" path="res://assets/Coin/50cent.svg" id="7_pxv2l"]
+[ext_resource type="Texture2D" uid="uid://cgmo0vyve0f2r" path="res://assets/Coin/1euro.svg" id="8_6o728"]
+[ext_resource type="Texture2D" uid="uid://cm6773065hasa" path="res://assets/Coin/2euro.svg" id="9_enjic"]
+[ext_resource type="Texture2D" uid="uid://bqhmwd7rdhbt" path="res://assets/Coin/5euro.svg" id="10_h0uka"]
+[ext_resource type="Texture2D" uid="uid://dus0uu434r6by" path="res://assets/Coin/10euro.svg" id="11_08xd7"]
+[ext_resource type="Texture2D" uid="uid://565ecijsxda3" path="res://assets/Coin/20euro.svg" id="12_o84n6"]
+[ext_resource type="Texture2D" uid="uid://hgfdxakyn32" path="res://assets/Coin/50euro.svg" id="13_n0cs3"]
+[ext_resource type="Texture2D" uid="uid://fnbdkfx6arba" path="res://assets/Coin/100euro.svg" id="14_y5nr7"]
+[ext_resource type="Texture2D" uid="uid://clt8ctwv4j4c8" path="res://assets/Coin/200euro.svg" id="15_n82t6"]
+[ext_resource type="Texture2D" uid="uid://daeebipen624s" path="res://assets/Coin/500euro.svg" id="16_pgtcm"]
+[ext_resource type="PackedScene" uid="uid://biktj6nxqegef" path="res://scenes/TweenFeedbackScale.tscn" id="17_6vgao"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6jg3o"]
+radius = 27.018513
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsyy1"]
+radius = 30.066593
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8m1o"]
+radius = 33.13608
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sgv4e"]
+radius = 31.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kllm"]
+radius = 37.01351
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxv2l"]
+radius = 39.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o728"]
+radius = 38.013157
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enjic"]
+radius = 44.04543
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0uka"]
+size = Vector2(267, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08xd7"]
+size = Vector2(266, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o84n6"]
+size = Vector2(286, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0cs3"]
+size = Vector2(306, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5nr7"]
+size = Vector2(340, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n82t6"]
+size = Vector2(358, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgtcm"]
+size = Vector2(394, 207)
+
+[node name="Coin" type="Area2D" unique_id=712527265 node_paths=PackedStringArray("sprite_node", "collision_node")]
+z_as_relative = false
+script = ExtResource("1_i64fm")
+value = 5
+sprites = Array[Texture2D]([ExtResource("2_6jg3o"), ExtResource("3_rsyy1"), ExtResource("4_y8m1o"), ExtResource("5_sgv4e"), ExtResource("6_0kllm"), ExtResource("7_pxv2l"), ExtResource("8_6o728"), ExtResource("9_enjic"), ExtResource("10_h0uka"), ExtResource("11_08xd7"), ExtResource("12_o84n6"), ExtResource("13_n0cs3"), ExtResource("14_y5nr7"), ExtResource("15_n82t6"), ExtResource("16_pgtcm")])
+shapes = Array[Shape2D]([SubResource("CircleShape2D_6jg3o"), SubResource("CircleShape2D_rsyy1"), SubResource("CircleShape2D_y8m1o"), SubResource("CircleShape2D_sgv4e"), SubResource("CircleShape2D_0kllm"), SubResource("CircleShape2D_pxv2l"), SubResource("CircleShape2D_6o728"), SubResource("CircleShape2D_enjic"), SubResource("RectangleShape2D_h0uka"), SubResource("RectangleShape2D_08xd7"), SubResource("RectangleShape2D_o84n6"), SubResource("RectangleShape2D_n0cs3"), SubResource("RectangleShape2D_y5nr7"), SubResource("RectangleShape2D_n82t6"), SubResource("RectangleShape2D_pgtcm")])
+sprite_node = NodePath("coin_sprite")
+collision_node = NodePath("CollisionShape2D")
+
+[node name="coin_sprite" type="Sprite2D" parent="." unique_id=1579240798]
+texture = ExtResource("7_pxv2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=31742530]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_pxv2l")
+
+[node name="PickupFeedback" parent="." unique_id=18202014 instance=ExtResource("17_6vgao")]
+scale_multiplier = 1.3
+duration = 0.4
+trans_type = 3
+
+[node name="DropFeedback" parent="." unique_id=436835083 instance=ExtResource("17_6vgao")]
+scale_multiplier = 0.769
+duration = 0.6
+trans_type = 9
+
+[connection signal="tween_stop_running" from="DropFeedback" to="." method="_on_drop_feedback_tween_stop_running"]

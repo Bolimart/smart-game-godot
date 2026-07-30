@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cu5entpcb26eg"]
+
+[node name="ValuePanel" type="Panel" unique_id=1725504883]
+anchors_preset = -1
+anchor_right = 0.74200004
+anchor_bottom = 0.684
+offset_right = -854.78406
+offset_bottom = -443.232

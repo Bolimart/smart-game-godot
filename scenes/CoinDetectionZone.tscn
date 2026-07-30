@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://piwm8320eash"]
+
+[ext_resource type="Script" uid="uid://ditjyd6vcwwhq" path="res://scripts/Coin/coin_detection_zone.gd" id="1_uclag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhpvc"]
+
+[node name="DetectionZone" type="Area2D" unique_id=184396929]
+script = ExtResource("1_uclag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2126849845]
+shape = SubResource("RectangleShape2D_lhpvc")
+
+[connection signal="area_entered" from="." to="." method="add_coin"]
+[connection signal="area_exited" from="." to="." method="remove_coin"]

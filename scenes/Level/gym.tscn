@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://et05ewp1it5v"]
+
+[ext_resource type="PackedScene" uid="uid://piwm8320eash" path="res://scenes/CoinDetectionZone.tscn" id="1_n16ky"]
+[ext_resource type="PackedScene" uid="uid://cw52oyeqng2gu" path="res://scenes/Coin.tscn" id="2_sap2e"]
+[ext_resource type="PackedScene" uid="uid://wbqlrulhr1ur" path="res://scenes/UI/Cursor.tscn" id="3_bd75x"]
+[ext_resource type="PackedScene" uid="uid://bl4eq7eykn1ph" path="res://scenes/CoinManager.tscn" id="4_ubcuo"]
+[ext_resource type="PackedScene" uid="uid://bhqhsyimwo0sv" path="res://scenes/CustomCamera.tscn" id="5_lfjvx"]
+
+[node name="Node2D" type="Node2D" unique_id=825520862]
+
+[node name="DetectionZone" parent="." unique_id=184396929 instance=ExtResource("1_n16ky")]
+position = Vector2(938, 329)
+scale = Vector2(16.686808, 28.58231)
+
+[node name="Coins" type="Node" parent="." unique_id=813727214]
+
+[node name="1c2" parent="Coins" unique_id=2106067109 instance=ExtResource("2_sap2e")]
+position = Vector2(430, 376)
+scale = Vector2(0.4088306, 0.40503228)
+value = 8
+
+[node name="2c2" parent="Coins" unique_id=1823252143 instance=ExtResource("2_sap2e")]
+position = Vector2(212, 278)
+scale = Vector2(0.4088306, 0.40503228)
+value = 9
+
+[node name="5c2" parent="Coins" unique_id=1009407741 instance=ExtResource("2_sap2e")]
+position = Vector2(283, 368)
+scale = Vector2(0.4088306, 0.40503228)
+value = 10
+
+[node name="10c2" parent="Coins" unique_id=632395812 instance=ExtResource("2_sap2e")]
+position = Vector2(357.00006, 279)
+scale = Vector2(0.4088306, 0.40503228)
+value = 11
+
+[node name="20c2" parent="Coins" unique_id=705971756 instance=ExtResource("2_sap2e")]
+position = Vector2(189, 480)
+scale = Vector2(0.4088306, 0.40503228)
+value = 12
+
+[node name="50c2" parent="Coins" unique_id=461564933 instance=ExtResource("2_sap2e")]
+position = Vector2(353, 478)
+scale = Vector2(0.4088306, 0.40503228)
+value = 13
+
+[node name="1e2" parent="Coins" unique_id=655875360 instance=ExtResource("2_sap2e")]
+position = Vector2(97.99994, 372.99997)
+scale = Vector2(0.4088306, 0.40503228)
+value = 14
+
+[node name="1c" parent="Coins" unique_id=1591931374 instance=ExtResource("2_sap2e")]
+position = Vector2(159, 166)
+scale = Vector2(0.4088306, 0.40503228)
+value = 0
+
+[node name="2c" parent="Coins" unique_id=942901662 instance=ExtResource("2_sap2e")]
+position = Vector2(223, 158)
+scale = Vector2(0.4088306, 0.40503228)
+value = 1
+
+[node name="5c" parent="Coins" unique_id=1318476633 instance=ExtResource("2_sap2e")]
+position = Vector2(286, 162)
+scale = Vector2(0.4088306, 0.40503228)
+value = 2
+
+[node name="10c" parent="Coins" unique_id=879384043 instance=ExtResource("2_sap2e")]
+position = Vector2(317, 178)
+scale = Vector2(0.4088306, 0.40503228)
+value = 3
+
+[node name="20c" parent="Coins" unique_id=405016286 instance=ExtResource("2_sap2e")]
+position = Vector2(362, 218)
+scale = Vector2(0.4088306, 0.40503228)
+value = 4
+
+[node name="50c" parent="Coins" unique_id=367946562 instance=ExtResource("2_sap2e")]
+position = Vector2(245, 210)
+scale = Vector2(0.4088306, 0.40503228)
+
+[node name="1e" parent="Coins" unique_id=1076397575 instance=ExtResource("2_sap2e")]
+position = Vector2(293, 219)
+scale = Vector2(0.4088306, 0.40503228)
+value = 6
+
+[node name="2e" parent="Coins" unique_id=977235205 instance=ExtResource("2_sap2e")]
+position = Vector2(173, 204)
+scale = Vector2(0.4088306, 0.40503228)
+value = 7
+
+[node name="Cursor" parent="." unique_id=107945029 instance=ExtResource("3_bd75x")]
+
+[node name="CoinManager" parent="." unique_id=1852390361 instance=ExtResource("4_ubcuo")]
+
+[node name="CustomCamera" parent="." unique_id=1206194502 instance=ExtResource("5_lfjvx")]
+position = Vector2(576, 324)
+offset_scale = 0.01

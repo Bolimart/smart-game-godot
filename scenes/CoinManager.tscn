@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bl4eq7eykn1ph"]
+
+[ext_resource type="Script" uid="uid://b0rkrcd2ubpoi" path="res://scripts/Coin/coin_manager.gd" id="1_tqmax"]
+
+[node name="CoinManager" type="Node2D" unique_id=1852390361]
+script = ExtResource("1_tqmax")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://biktj6nxqegef"]
+
+[ext_resource type="Script" uid="uid://gei2yfrybstu" path="res://scripts/Feedback & Visual/tween_feedback_scale.gd" id="1_b0whc"]
+
+[node name="PickupFeedback" type="Node2D" unique_id=18202014]
+script = ExtResource("1_b0whc")

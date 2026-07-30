@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bhqhsyimwo0sv"]
+
+[ext_resource type="Script" uid="uid://b33aio1avao7p" path="res://scripts/Feedback & Visual/custom_camera.gd" id="1_001n2"]
+
+[node name="CustomCamera" type="Camera2D" unique_id=1206194502]
+script = ExtResource("1_001n2")
