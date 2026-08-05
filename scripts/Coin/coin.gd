@@ -94,7 +94,6 @@ func ask_for_pickup():
 
 # Exemple d'utilisation du signal : à appeler quand le joueur ramasse la pièce.
 func pick_up() -> void:
-	print("Coin picked up")
 	if not _is_falling:
 		_picked = true
 		_mouse_offset = position - get_global_mouse_position()
@@ -103,7 +102,6 @@ func pick_up() -> void:
 
 
 func drop() -> void:
-	print("Coin dropped")
 	if not _is_falling and _picked:
 		_is_falling = true
 		_picked = false

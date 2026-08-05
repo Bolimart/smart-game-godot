@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://et05ewp1it5v"]
 
-[ext_resource type="PackedScene" uid="uid://piwm8320eash" path="res://scenes/CoinDetectionZone.tscn" id="1_n16ky"]
-[ext_resource type="PackedScene" uid="uid://cw52oyeqng2gu" path="res://scenes/Coin.tscn" id="2_sap2e"]
+[ext_resource type="PackedScene" uid="uid://kx0nusgi3f5n" path="res://scenes/UI/UI.tscn" id="1_n16ky"]
+[ext_resource type="PackedScene" uid="uid://cw52oyeqng2gu" path="res://scenes/Coin/Coin.tscn" id="2_sap2e"]
 [ext_resource type="PackedScene" uid="uid://wbqlrulhr1ur" path="res://scenes/UI/Cursor.tscn" id="3_bd75x"]
-[ext_resource type="PackedScene" uid="uid://bl4eq7eykn1ph" path="res://scenes/CoinManager.tscn" id="4_ubcuo"]
-[ext_resource type="PackedScene" uid="uid://bhqhsyimwo0sv" path="res://scenes/CustomCamera.tscn" id="5_lfjvx"]
+[ext_resource type="PackedScene" uid="uid://bl4eq7eykn1ph" path="res://scenes/Coin/CoinManager.tscn" id="4_ubcuo"]
+[ext_resource type="PackedScene" uid="uid://bhqhsyimwo0sv" path="res://scenes/Feedback & Visual/CustomCamera.tscn" id="5_lfjvx"]
 
 [node name="Node2D" type="Node2D" unique_id=825520862]
 
-[node name="DetectionZone" parent="." unique_id=184396929 instance=ExtResource("1_n16ky")]
-position = Vector2(938, 329)
-scale = Vector2(16.686808, 28.58231)
+[node name="Ui" parent="." unique_id=237581202 instance=ExtResource("1_n16ky")]
 
 [node name="Coins" type="Node" parent="." unique_id=813727214]
 

@@ -36,7 +36,6 @@ func play(target: Node2D) -> void:
 
 
 func stop_running() -> void:
-	print("tween stop running")
 	tween_stop_running.emit()
 
 

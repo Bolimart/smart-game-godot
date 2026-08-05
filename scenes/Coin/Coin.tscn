@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://fnbdkfx6arba" path="res://assets/Coin/100euro.svg" id="14_y5nr7"]
 [ext_resource type="Texture2D" uid="uid://clt8ctwv4j4c8" path="res://assets/Coin/200euro.svg" id="15_n82t6"]
 [ext_resource type="Texture2D" uid="uid://daeebipen624s" path="res://assets/Coin/500euro.svg" id="16_pgtcm"]
-[ext_resource type="PackedScene" uid="uid://biktj6nxqegef" path="res://scenes/TweenFeedbackScale.tscn" id="17_6vgao"]
+[ext_resource type="PackedScene" uid="uid://biktj6nxqegef" path="res://scenes/Feedback & Visual/TweenFeedbackScale.tscn" id="17_6vgao"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6jg3o"]
 radius = 27.018513

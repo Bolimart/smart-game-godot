@@ -12,13 +12,11 @@ func _ready() -> void:
 			node.z_index = len(coins)
 			coins.append(node)
 			grabbed_coins_queue.append(null)
-	print(len(grabbed_coins_queue))
 
 func _process(_delta: float) -> void:
 	for i in range(len(grabbed_coins_queue) -1, -1, -1):
 		if grabbed_coins_queue[i] is Coin:
 			var coin = coins[i]
-			print("Coin %.2f€ is allowed to be picked" % coin.get_monetary_value())
 			coin.pick_up()
 			put_coin_on_top(i)
 			empty_queue()
@@ -37,7 +35,6 @@ func put_coin_on_top(index: int) -> void:
 
 func _on_ask_pick_up(coin: Coin) -> void:
 	var index = get_coin_index(coin)
-	print("Coin %.2f€ asked to be picked up" % coin.get_monetary_value())
 	grabbed_coins_queue[index] = coin
 	
 func _on_coin_dropped(coin: Coin) -> void:
