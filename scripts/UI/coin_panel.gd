@@ -13,7 +13,17 @@ extends Panel
 @export var main_colors : Array[Color]
 @export var accent_colors : Array[Color]
 @export var min_sizes : Array[float]
+@export var overflow_main_color : Color
+@export var overflow_accent_color : Color
 
+func set_overflow_color() -> void:
+	var raw_style := get_theme_stylebox("panel").duplicate(true)
+	if raw_style is StyleBoxFancy:
+		var sbf: StyleBoxFancy = raw_style
+		sbf.color = overflow_main_color
+		sbf.borders[0].color = overflow_accent_color
+		custom_minimum_size = Vector2(min_sizes[_value], custom_minimum_size.y)
+		add_theme_stylebox_override("panel", sbf)
 
 func get_monetary_value() -> float:
 	return MoneyType.get_monetary_value(_value)
@@ -39,11 +49,12 @@ func setup(value: MoneyType.Denomination) -> void:
 		MoneyType.Denomination.BILLET_200E: label.text = "200€"
 		MoneyType.Denomination.BILLET_500E: label.text = "500€"
 		_: label.text = "Error"
-	var raw_style := get_theme_stylebox("panel")
+	var raw_style := get_theme_stylebox("panel").duplicate(true)
 	if raw_style is StyleBoxFancy:
 		var sbf: StyleBoxFancy = raw_style
 		sbf.color = main_colors[value]
 		sbf.borders[0].color = accent_colors[value]
 		custom_minimum_size = Vector2(min_sizes[value], custom_minimum_size.y)
+		add_theme_stylebox_override("panel", sbf)
 	else:
 		push_warning("Le panel n'a pas de StyleBoxFancy assignée en override")

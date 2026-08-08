@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dtipvgm40xjev" path="res://scripts/UI/ui_game.gd" id="1_0wsoe"]
 [ext_resource type="PackedScene" uid="uid://hthc06k0m4qj" path="res://scenes/UI/CoinBarEuro.tscn" id="2_n6wm8"]
-[ext_resource type="PackedScene" uid="uid://piwm8320eash" path="res://scenes/Coin/CoinDetectionZone.tscn" id="3_thnqs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6wm8"]
 bg_color = Color(0.17283267, 0.17283267, 0.17283258, 1)
@@ -10,6 +9,9 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_ubcuo"]
+font_size = 32
 
 [node name="Ui" type="Control" unique_id=237581202]
 layout_mode = 3
@@ -20,29 +22,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0wsoe")
 goal_value = 10.0
+object_value = 5.59
 
-[node name="Panel" type="Panel" parent="." unique_id=356555473]
-layout_mode = 1
+[node name="CoinBarPanel" type="Panel" parent="." unique_id=356555473]
+custom_minimum_size = Vector2(800, 70)
+layout_mode = 0
 offset_left = 15.0
 offset_top = 15.0
-offset_right = 515.0
+offset_right = 815.0
 offset_bottom = 85.0
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n6wm8")
 
-[node name="CoinBarEuro" parent="Panel" unique_id=1181995828 instance=ExtResource("2_n6wm8")]
+[node name="CoinBarEuro" parent="CoinBarPanel" unique_id=1181995828 instance=ExtResource("2_n6wm8")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
+offset_left = 3.0
 offset_top = 5.0
-offset_right = -5.0
+offset_right = -7.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DetectionZone" parent="." unique_id=184396929 instance=ExtResource("3_thnqs")]
-position = Vector2(938, 329)
-scale = Vector2(16.686808, 28.58231)
-
-[connection signal="update_coins" from="DetectionZone" to="." method="_on_detection_zone_update_coins"]
+[node name="CoinLabel" type="Label" parent="." unique_id=636150448]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 90.0
+offset_right = 122.0
+offset_bottom = 134.0
+text = "0€ / 10€"
+label_settings = SubResource("LabelSettings_ubcuo")
