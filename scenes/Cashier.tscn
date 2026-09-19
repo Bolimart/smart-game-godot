@@ -1,0 +1,441 @@
+[gd_scene format=3 uid="uid://bvqdqksyh8io8"]
+
+[ext_resource type="Script" uid="uid://c60sl4hcpkx6" path="res://scripts/cashier.gd" id="1_dr4n3"]
+[ext_resource type="Texture2D" uid="uid://b71g643vq8ycc" path="res://assets/caisse.svg" id="2_i6n2q"]
+[ext_resource type="Texture2D" uid="uid://b37dioiulmqj3" path="res://assets/tiroir_caisse.svg" id="3_cct8f"]
+[ext_resource type="Texture2D" uid="uid://brspt331w2qbo" path="res://assets/Coin/1cent.svg" id="4_sb000"]
+[ext_resource type="Texture2D" uid="uid://cgmo0vyve0f2r" path="res://assets/Coin/1euro.svg" id="5_lubkf"]
+[ext_resource type="Texture2D" uid="uid://ckvq5ss3rg5mg" path="res://assets/Coin/2cent.svg" id="6_e6kbc"]
+[ext_resource type="Texture2D" uid="uid://cm6773065hasa" path="res://assets/Coin/2euro.svg" id="7_bpfv2"]
+[ext_resource type="Texture2D" uid="uid://brkfuxr8hj8bp" path="res://assets/Coin/5cent.svg" id="8_sjk8p"]
+[ext_resource type="Texture2D" uid="uid://bqhmwd7rdhbt" path="res://assets/Coin/5euro.svg" id="9_21ujv"]
+[ext_resource type="Texture2D" uid="uid://d263r48h0dv3a" path="res://assets/Coin/10cent.svg" id="10_gsenr"]
+[ext_resource type="Texture2D" uid="uid://dus0uu434r6by" path="res://assets/Coin/10euro.svg" id="11_8ck4x"]
+[ext_resource type="Texture2D" uid="uid://dxfi5efd3mfl7" path="res://assets/Coin/20cent.svg" id="12_4cqvx"]
+[ext_resource type="Texture2D" uid="uid://565ecijsxda3" path="res://assets/Coin/20euro.svg" id="13_dv7d5"]
+[ext_resource type="Texture2D" uid="uid://dy1e2inrh3yes" path="res://assets/Coin/50cent.svg" id="14_wyuop"]
+[ext_resource type="Texture2D" uid="uid://hgfdxakyn32" path="res://assets/Coin/50euro.svg" id="15_fsb6x"]
+[ext_resource type="PackedScene" uid="uid://doqms4d2xeq4d" path="res://scenes/Coin/CoinSpawner.tscn" id="16_i6n2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82jbk"]
+size = Vector2(339, 37)
+
+[node name="Cashier" type="Node2D" unique_id=1638920911]
+position = Vector2(2, 0)
+script = ExtResource("1_dr4n3")
+animation_duration = 0.6
+trans_type = 7
+
+[node name="Caisse" type="Sprite2D" parent="." unique_id=2024444908]
+texture = ExtResource("2_i6n2q")
+
+[node name="Area2D" type="Area2D" parent="Caisse" unique_id=844848598]
+position = Vector2(111, 153)
+
+[node name="BoutonOuverture" type="CollisionShape2D" parent="Caisse/Area2D" unique_id=1939739131]
+position = Vector2(-109.5, 7.5)
+shape = SubResource("RectangleShape2D_82jbk")
+
+[node name="TiroirCaisse" type="Sprite2D" parent="." unique_id=1640742233]
+z_index = -1
+position = Vector2(0, 38)
+scale = Vector2(1.0057594, 1)
+texture = ExtResource("3_cct8f")
+
+[node name="Spawner1c" parent="TiroirCaisse" unique_id=75240624 instance=ExtResource("16_i6n2q")]
+position = Vector2(-132, 26)
+scale = Vector2(4.2, 3.8)
+coin_type = 0
+
+[node name="Spawner2c" parent="TiroirCaisse" unique_id=624135767 instance=ExtResource("16_i6n2q")]
+position = Vector2(-132, 107)
+scale = Vector2(4.2, 3.8)
+coin_type = 1
+
+[node name="Spawner5c" parent="TiroirCaisse" unique_id=1074156040 instance=ExtResource("16_i6n2q")]
+position = Vector2(-44, 26)
+scale = Vector2(4.2, 3.8)
+coin_type = 2
+
+[node name="Spawner10c" parent="TiroirCaisse" unique_id=1172082525 instance=ExtResource("16_i6n2q")]
+position = Vector2(-43, 107)
+scale = Vector2(4.2, 3.8)
+coin_type = 3
+
+[node name="Spawner20c" parent="TiroirCaisse" unique_id=844485206 instance=ExtResource("16_i6n2q")]
+position = Vector2(44, 26)
+scale = Vector2(4.2, 3.8)
+coin_type = 4
+
+[node name="Spawner50c" parent="TiroirCaisse" unique_id=1922830593 instance=ExtResource("16_i6n2q")]
+position = Vector2(44, 107)
+scale = Vector2(4.2, 3.8)
+coin_type = 5
+
+[node name="Spawner1e" parent="TiroirCaisse" unique_id=44023524 instance=ExtResource("16_i6n2q")]
+position = Vector2(132, 26)
+scale = Vector2(4.2, 3.8)
+
+[node name="Spawner2e" parent="TiroirCaisse" unique_id=1322885513 instance=ExtResource("16_i6n2q")]
+position = Vector2(133, 107)
+scale = Vector2(4.2, 3.8)
+coin_type = 7
+
+[node name="Spawner5e" parent="TiroirCaisse" unique_id=1949558682 instance=ExtResource("16_i6n2q")]
+position = Vector2(-135.2212, -88)
+scale = Vector2(3.440827, 6.6538897)
+coin_type = 8
+
+[node name="Spawner10e" parent="TiroirCaisse" unique_id=1132065474 instance=ExtResource("16_i6n2q")]
+position = Vector2(-52.696503, -87)
+scale = Vector2(3.7835379, 6.5666223)
+coin_type = 9
+
+[node name="Spawner20e" parent="TiroirCaisse" unique_id=1242061517 instance=ExtResource("16_i6n2q")]
+position = Vector2(32.811028, -88)
+scale = Vector2(4.063537, 6.691756)
+coin_type = 10
+
+[node name="Spawner50e" parent="TiroirCaisse" unique_id=1573688929 instance=ExtResource("16_i6n2q")]
+position = Vector2(124.28421, -88)
+scale = Vector2(4.2235365, 6.8117585)
+coin_type = 11
+
+[node name="Sprites" type="Node2D" parent="TiroirCaisse" unique_id=1340359834]
+
+[node name="1Cent" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=196338020]
+position = Vector2(-155, 6.7900085)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent2" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=587997497]
+position = Vector2(-155, 6.7900085)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent3" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1176015721]
+position = Vector2(-124, 19.790009)
+rotation = 0.25848222
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent4" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1687799851]
+position = Vector2(-153.99998, 37.79001)
+rotation = -0.22379169
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent5" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1913467672]
+position = Vector2(-153.99998, 37.79001)
+rotation = -0.22379169
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent6" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=454469255]
+position = Vector2(-130, 43.79001)
+rotation = 0.26179937
+scale = Vector2(0.49999994, 0.49999994)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent7" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1627765341]
+position = Vector2(-141, 24.790009)
+rotation = -0.26179937
+scale = Vector2(0.49999994, 0.49999994)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent8" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1717752075]
+position = Vector2(-130, 7.7900085)
+rotation = 0.26179937
+scale = Vector2(0.49999994, 0.49999994)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent9" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=488346105]
+position = Vector2(-106, 12.790009)
+rotation = 0.26179937
+scale = Vector2(0.49999994, 0.49999994)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent10" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=330066478]
+position = Vector2(-106, 12.790009)
+rotation = -0.7853982
+scale = Vector2(0.49999994, 0.49999994)
+texture = ExtResource("4_sb000")
+
+[node name="1Cent11" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=779270562]
+position = Vector2(-112.99999, 38.79001)
+rotation = 0.26179937
+scale = Vector2(0.49999994, 0.49999994)
+texture = ExtResource("4_sb000")
+
+[node name="1Euro" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1600254004]
+position = Vector2(129, 31.790009)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_lubkf")
+
+[node name="1Euro2" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1665254192]
+position = Vector2(153, 40)
+rotation = 0.5235988
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_lubkf")
+
+[node name="1Euro3" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1162321126]
+position = Vector2(114, 40)
+rotation = -0.5235988
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_lubkf")
+
+[node name="1Euro4" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=444841213]
+position = Vector2(148, 9)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("5_lubkf")
+
+[node name="1Euro5" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=469399597]
+position = Vector2(118, 11)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("5_lubkf")
+
+[node name="2Cent" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=153640768]
+position = Vector2(-150, 123.79001)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("6_e6kbc")
+
+[node name="2Cent2" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=797612849]
+position = Vector2(-130, 112.79001)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("6_e6kbc")
+
+[node name="2Cent3" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=612156461]
+position = Vector2(-156, 98.79001)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("6_e6kbc")
+
+[node name="2Cent5" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=724576547]
+position = Vector2(-115.00001, 127)
+rotation = 0.7853982
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("6_e6kbc")
+
+[node name="2Cent6" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1482966637]
+position = Vector2(-108.00001, 107.79001)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("6_e6kbc")
+
+[node name="2Cent7" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=563777350]
+position = Vector2(-139, 88.99997)
+rotation = -0.5235988
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_e6kbc")
+
+[node name="2Cent4" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=305827519]
+position = Vector2(-122, 87.79001)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("6_e6kbc")
+
+[node name="2Euro" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1198140173]
+position = Vector2(115, 92)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("7_bpfv2")
+
+[node name="2Euro2" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=858020633]
+position = Vector2(117, 122)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("7_bpfv2")
+
+[node name="2Euro3" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1242980453]
+position = Vector2(145, 94)
+rotation = 0.7853982
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("7_bpfv2")
+
+[node name="2Euro4" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=16701579]
+position = Vector2(136, 120)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("7_bpfv2")
+
+[node name="2Euro5" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1028916981]
+position = Vector2(153, 115)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("7_bpfv2")
+
+[node name="5Cent" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1156702365]
+position = Vector2(-20, 35.79001)
+rotation = 0.7853982
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("8_sjk8p")
+
+[node name="5Cent2" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=541155105]
+position = Vector2(-62, 36.79001)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("8_sjk8p")
+
+[node name="5Cent3" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=113019522]
+position = Vector2(-47.999996, 23.790009)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("8_sjk8p")
+
+[node name="5Cent4" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1168353697]
+position = Vector2(-30.999998, 11.790009)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("8_sjk8p")
+
+[node name="5Cent6" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1986153366]
+position = Vector2(-59, 11.790009)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("8_sjk8p")
+
+[node name="5Cent5" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=780860973]
+position = Vector2(-39.000004, 42.79001)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("8_sjk8p")
+
+[node name="5Euro" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1010927387]
+position = Vector2(-134, -90.20999)
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_21ujv")
+
+[node name="10Cent" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=283229957]
+position = Vector2(-26, 97.79001)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_gsenr")
+
+[node name="10Cent2" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=838387100]
+position = Vector2(-54, 100)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("10_gsenr")
+
+[node name="10Cent3" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1449803374]
+position = Vector2(-42, 125)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("10_gsenr")
+
+[node name="10Cent4" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1154675213]
+position = Vector2(-16.999996, 115)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("10_gsenr")
+
+[node name="10Cent5" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=109097330]
+position = Vector2(-16.999996, 115)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("10_gsenr")
+
+[node name="10Cent6" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=387936630]
+position = Vector2(-42.000008, 86)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("10_gsenr")
+
+[node name="10Cent7" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=643051972]
+position = Vector2(-63, 125)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_gsenr")
+
+[node name="10Cent8" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1960232917]
+position = Vector2(-66, 91)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("10_gsenr")
+
+[node name="10Euro" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=269749058]
+position = Vector2(-53.000004, -91.000015)
+rotation = -1.59416
+scale = Vector2(0.49999994, 0.49999994)
+texture = ExtResource("11_8ck4x")
+
+[node name="20Cent" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1620240218]
+position = Vector2(45, 26.790009)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_4cqvx")
+
+[node name="20Cent2" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=266462551]
+position = Vector2(31, 40)
+rotation = 0.5235988
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_4cqvx")
+
+[node name="20Cent3" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=29318254]
+position = Vector2(63, 38)
+rotation = -0.5235988
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_4cqvx")
+
+[node name="20Cent4" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1177143172]
+position = Vector2(24, 12)
+rotation = -0.5235988
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_4cqvx")
+
+[node name="20Cent5" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1766736977]
+position = Vector2(24, 12)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("12_4cqvx")
+
+[node name="20Cent6" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1158188884]
+position = Vector2(60.000004, 7)
+rotation = 0.5235988
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_4cqvx")
+
+[node name="20Euro" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=995131751]
+position = Vector2(32, -94.000015)
+rotation = -1.5519602
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_dv7d5")
+
+[node name="50Cent" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1586738994]
+position = Vector2(26, 121)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_wyuop")
+
+[node name="50Cent2" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1832498219]
+position = Vector2(46, 106)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_wyuop")
+
+[node name="50Cent5" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1243954967]
+position = Vector2(65, 89)
+rotation = 0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("14_wyuop")
+
+[node name="50Cent3" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1590960336]
+position = Vector2(59.999992, 120)
+rotation = -0.5235988
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_wyuop")
+
+[node name="50Cent4" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=1268287075]
+position = Vector2(27.000004, 94)
+rotation = -0.2617994
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("14_wyuop")
+
+[node name="50Euro" type="Sprite2D" parent="TiroirCaisse/Sprites" unique_id=195828236]
+position = Vector2(124, -99)
+rotation = -1.5866944
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_fsb6x")
+
+[connection signal="mouse_entered" from="Caisse/Area2D" to="." method="_mouse_enter"]
+[connection signal="mouse_exited" from="Caisse/Area2D" to="." method="_mouse_exit"]

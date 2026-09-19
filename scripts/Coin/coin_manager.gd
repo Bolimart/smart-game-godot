@@ -3,15 +3,7 @@ extends Node2D
 
 var coins : Array[Coin] = []
 var grabbed_coins_queue : Array[Coin] = []
-
-func _ready() -> void:
-	for node in get_tree().get_nodes_in_group("coins"):
-		if node is Coin:
-			node.ask_pickup.connect(_on_ask_pick_up.bind(node))
-			node.dropped.connect(_on_coin_dropped.bind(node))
-			node.z_index = len(coins)
-			coins.append(node)
-			grabbed_coins_queue.append(null)
+var coin_scene : Resource = preload("res://scenes/Coin/Coin.tscn")
 
 func _process(_delta: float) -> void:
 	for i in range(len(grabbed_coins_queue) -1, -1, -1):
@@ -28,9 +20,29 @@ func empty_queue() -> void:
 func get_coin_index(coin: Coin) -> int:
 	return coins.find(coin)
 
+func add_coin(coin_type: MoneyType.Denomination) -> void:	
+	var coin : Coin = coin_scene.instantiate()
+	coin.value = coin_type
+	add_child(coin)
+	coin.ask_pickup.connect(_on_ask_pick_up.bind(coin))
+	coin.dropped.connect(_on_coin_dropped.bind(coin))
+	coin.z_index = len(coins)
+	coins.append(coin)
+	coin.position = get_global_mouse_position()
+	grabbed_coins_queue.append(null)
+	coin.pick_up()
+
+func remove_coin(coin: Coin) -> void:	
+	remove_child(coin)
+	coin.ask_pickup.disconnect(_on_ask_pick_up.bind(coin))
+	coin.dropped.disconnect(_on_coin_dropped.bind(coin))
+	coins.remove_at(get_coin_index(coin))
+
 func put_coin_on_top(index: int) -> void:
 	coins.append(coins.pop_at(index))
 	for i in range(index, len(coins)):
+		print(i)
+		print((i + 1))
 		coins[i].z_index = i + 1
 
 func _on_ask_pick_up(coin: Coin) -> void:

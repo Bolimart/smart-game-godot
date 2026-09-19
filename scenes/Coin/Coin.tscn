@@ -65,6 +65,7 @@ size = Vector2(394, 207)
 
 [node name="Coin" type="Area2D" unique_id=712527265 node_paths=PackedStringArray("sprite_node", "collision_node")]
 z_as_relative = false
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_i64fm")
 value = 5
 sprites = Array[Texture2D]([ExtResource("2_6jg3o"), ExtResource("3_rsyy1"), ExtResource("4_y8m1o"), ExtResource("5_sgv4e"), ExtResource("6_0kllm"), ExtResource("7_pxv2l"), ExtResource("8_6o728"), ExtResource("9_enjic"), ExtResource("10_h0uka"), ExtResource("11_08xd7"), ExtResource("12_o84n6"), ExtResource("13_n0cs3"), ExtResource("14_y5nr7"), ExtResource("15_n82t6"), ExtResource("16_pgtcm")])
@@ -76,7 +77,6 @@ collision_node = NodePath("CollisionShape2D")
 texture = ExtResource("7_pxv2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=31742530]
-visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("CircleShape2D_pxv2l")
 

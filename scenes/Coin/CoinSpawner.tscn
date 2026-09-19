@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://doqms4d2xeq4d"]
+
+[ext_resource type="Script" uid="uid://dovvdjsheoj8v" path="res://scripts/Coin/coin_spawner.gd" id="1_48qxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhpvc"]
+
+[node name="CoinSpawner" type="Area2D" unique_id=75240624]
+script = ExtResource("1_48qxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130275578]
+shape = SubResource("RectangleShape2D_lhpvc")
+
+[connection signal="mouse_entered" from="." to="." method="mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="mouse_exited"]

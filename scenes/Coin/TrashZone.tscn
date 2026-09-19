@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dnurpyqar13s2"]
+
+[ext_resource type="Script" uid="uid://nvfladaxnigs" path="res://scripts/Coin/trash_zone.gd" id="1_82amw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhpvc"]
+
+[node name="DetectionZone" type="Area2D" unique_id=184396929]
+script = ExtResource("1_82amw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2126849845]
+shape = SubResource("RectangleShape2D_lhpvc")
+
+[connection signal="area_entered" from="." to="." method="on_object_enter"]
