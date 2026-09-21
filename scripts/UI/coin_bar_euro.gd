@@ -25,6 +25,7 @@ func setup(goal_value: float, base_object_price: float, width: float) -> void:
 		price_label.text = ""
 	update_coin_stack()
 
+
 func add_coin(money_type: MoneyType.Denomination) -> int:
 	var coin_panel : CoinPanel = CoinPanelScene.instantiate()
 	add_child(coin_panel)
@@ -32,7 +33,7 @@ func add_coin(money_type: MoneyType.Denomination) -> int:
 	coin_panel.setup(money_type)
 	update_coin_stack()
 	return len(_coin_stack)
-	
+
 
 func remove_coin(id: int) -> void:
 	var coin = _coin_stack.pop_at(id)
@@ -47,6 +48,7 @@ func clear_coin() -> void:
 		return
 	remove_child(coin)
 	clear_coin()
+
 
 func update_coin_stack() -> void:
 	if _goal_value <= 0: return

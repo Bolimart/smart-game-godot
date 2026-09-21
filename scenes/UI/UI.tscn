@@ -13,6 +13,16 @@ corner_radius_bottom_left = 15
 [sub_resource type="LabelSettings" id="LabelSettings_ubcuo"]
 font_size = 32
 
+[sub_resource type="DPITexture" id="DPITexture_n6wm8"]
+_source = "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width=\"82px\" height=\"82px\" viewBox=\"0 -0.5 17 17\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" class=\"si-glyph si-glyph-arrow-right\" fill=\"#ffffff\" style=\"--darkreader-inline-fill: var(--darkreader-background-ffffff, #181a1b);\" data-darkreader-inline-fill=\"\">
+<g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"/>
+<g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke=\"#CCCCCC\" stroke-width=\"0.272\" style=\"--darkreader-inline-stroke: var(--darkreader-text-cccccc, #c8c3bc);\" data-darkreader-inline-stroke=\"\"/>
+<g id=\"SVGRepo_iconCarrier\"> <title>1178</title> <defs> </defs> <g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" style=\"--darkreader-inline-stroke: none;\" data-darkreader-inline-stroke=\"\"> <path d=\"M6.077,1.162 C6.077,1.387 6.139,1.612 6.273,1.812 L10.429,8.041 L6.232,14.078 C5.873,14.619 6.019,15.348 6.56,15.707 C7.099,16.068 7.831,15.922 8.19,15.382 L12.82,8.694 C13.084,8.3 13.086,7.786 12.822,7.39 L8.233,0.51 C7.873,-0.032 7.141,-0.178 6.601,0.181 C6.26,0.409 6.077,0.782 6.077,1.162 L6.077,1.162 Z\" fill=\"#ffffff\" class=\"si-glyph-fill\" style=\"--darkreader-inline-fill: var(--darkreader-background-ffffff, #181a1b);\" data-darkreader-inline-fill=\"\"> </path> </g> </g>
+</svg>"
+base_scale = 0.4
+
 [node name="Ui" type="Control" unique_id=237581202]
 layout_mode = 3
 anchors_preset = 15
@@ -27,6 +37,7 @@ grow_vertical = 2
 script = ExtResource("1_0wsoe")
 goal_value = 10.0
 object_value = 5.59
+trans_type = 1
 
 [node name="CoinBarPanel" type="Panel" parent="." unique_id=356555473]
 custom_minimum_size = Vector2(800, 70)
@@ -49,12 +60,67 @@ offset_right = -7.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(75, -50)
+
+[node name="CoinBarCent" type="Panel" parent="." unique_id=155398580]
+custom_minimum_size = Vector2(800, 70)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 470.0
+offset_right = 814.0
+offset_bottom = 540.00006
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n6wm8")
+
+[node name="CoinBarCent" parent="CoinBarCent" unique_id=661166428 instance=ExtResource("2_n6wm8")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = -7.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, -50)
 
 [node name="CoinLabel" type="Label" parent="." unique_id=636150448]
 layout_mode = 0
 offset_left = 30.0
-offset_top = 498.0
+offset_top = 419.0
 offset_right = 151.0
-offset_bottom = 543.0
+offset_bottom = 464.0
 text = "0€ / 10€"
 label_settings = SubResource("LabelSettings_ubcuo")
+
+[node name="Settings" type="HBoxContainer" parent="." unique_id=2000637739]
+layout_mode = 0
+offset_left = -200.0
+offset_top = 200.0
+offset_right = 45.0
+offset_bottom = 266.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings" unique_id=1190600135]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+accessibility_region = true
+alignment = 1
+
+[node name="Prix" type="LineEdit" parent="Settings/VBoxContainer" unique_id=1626832485]
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Prix"
+virtual_keyboard_type = 2
+
+[node name="BilletDonne" type="LineEdit" parent="Settings/VBoxContainer" unique_id=587831647]
+layout_mode = 2
+placeholder_text = "Billet Donné"
+virtual_keyboard_type = 2
+
+[node name="Button" type="Button" parent="Settings" unique_id=1166677345]
+layout_mode = 2
+offset_transform_pivot = Vector2(80, 0)
+icon = SubResource("DPITexture_n6wm8")
+
+[connection signal="button_down" from="Settings/Button" to="." method="button_setting_pressed"]

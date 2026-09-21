@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SmartGameRenduMonaie"
-run/main_scene="uid://et05ewp1it5v"
+run/main_scene="uid://y7cnf3h2cwex"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
