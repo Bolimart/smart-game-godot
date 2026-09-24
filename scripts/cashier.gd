@@ -16,7 +16,6 @@ var _tween: Tween
 
 func _ready() -> void:
 	for child in $TiroirCaisse.get_children():
-		print(child.get_class())
 		if child is Area2D:
 			child.set_coin_manager(coin_manager)
 			child.cashier = self
@@ -46,6 +45,7 @@ func open_cashier() -> void:
 	_tween.set_ease(ease_type)
 	_tween.tween_property(target, "position", open_position, animation_duration)
 	is_open = true
+	$OpenSound.play()
 	
 func close_cashier() -> void:
 	var target = $TiroirCaisse
@@ -58,3 +58,4 @@ func close_cashier() -> void:
 	_tween.set_ease(ease_type)
 	_tween.tween_property(target, "position", close_position, animation_duration)
 	is_open = false
+	$CloseSound.play()

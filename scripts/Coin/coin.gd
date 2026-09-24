@@ -20,6 +20,7 @@ extends Area2D
 # C'est l'équivalent d'un List<Texture2D> en C#.
 @export var sprites: Array[Texture2D] = []
 @export var shapes: Array[Shape2D] = []
+var isCoin : bool = true
 
 # --- RÉFÉRENCE AU NŒUDS ENFANT ---
 # @onready = "récupère ce nœud une fois qu'il est prêt", évalué juste avant _ready().
@@ -59,7 +60,8 @@ func _mouse_enter() -> void:
 	_hovered = true
 	
 func _mouse_exit() -> void:
-	_hovered = false
+	if !_picked:
+		_hovered = false
 	
 func _input(event) -> void:
 	if event is InputEventMouseButton:
@@ -69,37 +71,36 @@ func _input(event) -> void:
 			else:
 				drop()
 
-# Fonction "privée" par convention : le underscore préfixe indique "usage interne"
-# (GDScript n'a pas de vrais modificateurs private/public sur les méthodes).
 func _update_sprite() -> void:
-	print("Nouvelle valeur: %s" % MoneyType.Denomination.keys()[value])
 	if sprite_node == null:
 		return
-	# Petite sécurité : on vérifie que l'index existe avant d'aller piocher dans le tableau,
-	# pour éviter un crash si sprites[] n'est pas encore rempli dans l'Inspecteur.
 	var index := int(value)
 	if index >= 0 and index < sprites.size():
 		sprite_node.texture = sprites[index]
 		collision_node.shape = shapes[index]
+		if index > 7:
+			isCoin = false
 	else:
 		push_warning("Coin: aucun sprite assigné pour la dénomination %s" % MoneyType.Denomination.keys()[index])
 
-# --- MÉTHODE UTILITAIRE : renvoie la valeur monétaire réelle ---
-# match = équivalent du switch C# mais plus proche d'un pattern matching (comme en Python 3.10+).
+
 func get_monetary_value() -> float:
 	return MoneyType.get_monetary_value(value)
 
 func ask_for_pickup():
 	ask_pickup.emit()
 
-# Exemple d'utilisation du signal : à appeler quand le joueur ramasse la pièce.
+
 func pick_up() -> void:
 	if not _is_falling:
 		_picked = true
 		_mouse_offset = position - get_global_mouse_position()
 		_pickup_feedback.play(self)
 		picked_up.emit()
-
+		if isCoin:
+			$PickupSoundCoin.play()
+		else:
+			$PickupSoundBill.play()
 
 func drop() -> void:
 	if not _is_falling and _picked:
@@ -107,6 +108,10 @@ func drop() -> void:
 		_picked = false
 		_waiting_to_be_dropped = true
 		dropped.emit()
+		if isCoin:
+			$DropSoundCoin.play()
+		else:
+			$DropSoundBill.play()
 
 func _on_drop_feedback_tween_stop_running() -> void:
 	_is_falling = false

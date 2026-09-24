@@ -5,11 +5,16 @@ extends Area2D
 func on_object_enter(coin: Area2D) -> void:
 	if coin is Coin:
 		if coin.picked_up:
-			print("Coin Entered")
 			coin.dropped.connect(remove_coin.bind(coin))
 		else:
 			remove_coin(coin)
 
+func on_object_exit(coin: Area2D) -> void:
+	if coin is Coin:
+		if coin.picked_up: 
+			coin.dropped.disconnect(remove_coin.bind(coin))
+
 func remove_coin(coin: Coin) -> void:
 	coin_manager.remove_coin(coin)
+	$TrashSound.play()
 	coin.queue_free()

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dnurpyqar13s2"]
 
 [ext_resource type="Script" uid="uid://nvfladaxnigs" path="res://scripts/Coin/trash_zone.gd" id="1_82amw"]
+[ext_resource type="AudioStream" uid="uid://ct4sthgn7x8bq" path="res://assets/Sound/498434__nestra__trash-can-falling.wav" id="2_cl7q0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhpvc"]
 
@@ -9,5 +10,9 @@ script = ExtResource("1_82amw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2126849845]
 shape = SubResource("RectangleShape2D_lhpvc")
+
+[node name="TrashSound" type="AudioStreamPlayer2D" parent="." unique_id=316340517]
+stream = ExtResource("2_cl7q0")
+volume_db = -4.0
 
 [connection signal="area_entered" from="." to="." method="on_object_enter"]

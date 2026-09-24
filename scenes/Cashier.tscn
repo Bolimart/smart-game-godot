@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dy1e2inrh3yes" path="res://assets/Coin/50cent.svg" id="14_wyuop"]
 [ext_resource type="Texture2D" uid="uid://hgfdxakyn32" path="res://assets/Coin/50euro.svg" id="15_fsb6x"]
 [ext_resource type="PackedScene" uid="uid://doqms4d2xeq4d" path="res://scenes/Coin/CoinSpawner.tscn" id="16_i6n2q"]
+[ext_resource type="AudioStream" uid="uid://ch257dif0yhgb" path="res://assets/Sound/CaisseOuverte.wav" id="17_sb000"]
+[ext_resource type="AudioStream" uid="uid://buvn4b1iaodk8" path="res://assets/Sound/CaisseFermee.wav" id="18_lubkf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82jbk"]
 size = Vector2(339, 37)
@@ -436,6 +438,12 @@ position = Vector2(124, -99)
 rotation = -1.5866944
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("15_fsb6x")
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="." unique_id=529889629]
+stream = ExtResource("17_sb000")
+
+[node name="CloseSound" type="AudioStreamPlayer2D" parent="." unique_id=1509929325]
+stream = ExtResource("18_lubkf")
 
 [connection signal="mouse_entered" from="Caisse/Area2D" to="." method="_mouse_enter"]
 [connection signal="mouse_exited" from="Caisse/Area2D" to="." method="_mouse_exit"]

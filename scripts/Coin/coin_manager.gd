@@ -32,17 +32,23 @@ func add_coin(coin_type: MoneyType.Denomination) -> void:
 	grabbed_coins_queue.append(null)
 	coin.pick_up()
 
+
 func remove_coin(coin: Coin) -> void:	
 	remove_child(coin)
 	coin.ask_pickup.disconnect(_on_ask_pick_up.bind(coin))
 	coin.dropped.disconnect(_on_coin_dropped.bind(coin))
 	coins.remove_at(get_coin_index(coin))
 
+func clear_coin() -> void:
+	for coin in coins:
+		remove_child(coin)
+		coin.ask_pickup.disconnect(_on_ask_pick_up.bind(coin))
+		coin.dropped.disconnect(_on_coin_dropped.bind(coin))
+	coins.clear()
+
 func put_coin_on_top(index: int) -> void:
 	coins.append(coins.pop_at(index))
 	for i in range(index, len(coins)):
-		print(i)
-		print((i + 1))
 		coins[i].z_index = i + 1
 
 func _on_ask_pick_up(coin: Coin) -> void:

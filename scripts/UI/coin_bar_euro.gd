@@ -12,6 +12,7 @@ var _coin_stack : Array[CoinPanel] = []
 @export var _goal_value : float = 100
 @export var _width = 500
 @export var _base_object_price = 300
+var total : float
 
 func setup(goal_value: float, base_object_price: float, width: float) -> void:
 	_base_object_price = base_object_price
@@ -35,12 +36,6 @@ func add_coin(money_type: MoneyType.Denomination) -> int:
 	return len(_coin_stack)
 
 
-func remove_coin(id: int) -> void:
-	var coin = _coin_stack.pop_at(id)
-	remove_child(coin)
-	update_coin_stack()
-
-
 func clear_coin() -> void:
 	var coin = _coin_stack.pop_front()
 	if coin == null:
@@ -51,17 +46,17 @@ func clear_coin() -> void:
 
 
 func update_coin_stack() -> void:
+	total = _base_object_price
 	if _goal_value <= 0: return
 	_coin_stack.clear()
-	var total = _base_object_price
 	var size_percent = _base_object_price / _goal_value
 	for child in get_children():
 		if child is CoinPanel:
 			_coin_stack.append(child)
 			total += child.get_monetary_value()
-			if (total / _goal_value) > 1.0 + EPSILON:
-				print("%f / %f = %f" % [total, _goal_value, total/ _goal_value])
+			if total > _goal_value:
 				child.set_overflow_color()
+				$BarOverflow.play()
 	size_percent = (total / _goal_value)
 	
 	if size_percent > 1:
