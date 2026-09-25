@@ -54,9 +54,8 @@ func update_coin_stack() -> void:
 		if child is CoinPanel:
 			_coin_stack.append(child)
 			total += child.get_monetary_value()
-			if total > _goal_value:
+			if total > _goal_value + EPSILON:
 				child.set_overflow_color()
-				$BarOverflow.play()
 	size_percent = (total / _goal_value)
 	
 	if size_percent > 1:

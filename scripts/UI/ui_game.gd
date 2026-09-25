@@ -56,17 +56,23 @@ func _on_detection_zone_update_coins() -> void:
 		if coin_value >= 1.0:
 			var was_filled: bool = _coin_bar_euro.total == _coin_bar_euro._goal_value
 			_coin_bar_euro.add_coin(coin.value)
-			var is_now_filled: bool = _coin_bar_euro.total == _coin_bar_euro._goal_value
-			
-			if is_new_coin and not was_filled and is_now_filled:
-				$BarFilledAudio.play()
+			var is_now_filled: bool = is_equal_approx(_coin_bar_euro.total, _coin_bar_euro._goal_value)
+			var is_now_overflow: bool = _coin_bar_euro.total > _coin_bar_euro._goal_value + _coin_bar_euro.EPSILON
+			if is_new_coin and not was_filled:
+				if is_now_filled:
+					$BarFilledAudio.play()
+				elif is_now_overflow:
+					$BarOverflow.play()
 		else:
 			var was_filled: bool = _coin_bar_cent.total == _coin_bar_cent._goal_value
 			_coin_bar_cent.add_coin(coin.value)
-			var is_now_filled: bool = _coin_bar_cent.total == _coin_bar_cent._goal_value
-			
-			if is_new_coin and not was_filled and is_now_filled:
-				$BarFilledAudio.play()
+			var is_now_filled: bool = is_equal_approx(_coin_bar_cent.total, _coin_bar_cent._goal_value)
+			var is_now_overflow: bool = _coin_bar_cent.total > _coin_bar_cent._goal_value + _coin_bar_cent.EPSILON
+			if is_new_coin and not was_filled:
+				if is_now_filled:
+					$BarFilledAudio.play()
+				elif is_now_overflow:
+					$BarOverflow.play()
 	
 	_coin_label.text = "%.2f€ / %.2f€" % [_detection_zone.value + object_value, goal_value]
 	if _detection_zone.value + object_value == goal_value:

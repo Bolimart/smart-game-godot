@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c6q4jvafvj1si" path="res://assets/Sound/458398__breviceps__balloon-pop-christmas-cracker-confetti-cannon.wav" id="3_thnqs"]
 [ext_resource type="AudioStream" uid="uid://ct4sthgn7x8bq" path="res://assets/Sound/498434__nestra__trash-can-falling.wav" id="4_gl4co"]
 [ext_resource type="AudioStream" uid="uid://dfrctt7oqd8wf" path="res://assets/Sound/615099__mlaudio__magic_game_win_success.wav" id="5_lj5up"]
+[ext_resource type="AudioStream" uid="uid://bcngvdb8on0eb" path="res://assets/Sound/351565__bertrof__game-sound-incorrect-organic-violin.wav" id="6_wgnrc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6wm8"]
 bg_color = Color(0.17283267, 0.17283267, 0.17283258, 1)
@@ -388,6 +389,10 @@ volume_db = -4.0
 [node name="BarFilledAudio" type="AudioStreamPlayer2D" parent="." unique_id=652963888]
 stream = ExtResource("5_lj5up")
 volume_db = 5.127
+
+[node name="BarOverflow" type="AudioStreamPlayer2D" parent="." unique_id=2109954955]
+stream = ExtResource("6_wgnrc")
+volume_db = -5.0
 
 [connection signal="text_submitted" from="Settings/EditLine/Prix" to="." method="on_text_submited"]
 [connection signal="text_submitted" from="Settings/EditLine/BilletDonne" to="." method="on_text_submited"]

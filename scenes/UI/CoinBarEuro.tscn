@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cke07u3gbrcd" path="res://scripts/UI/coin_bar_euro.gd" id="1_in3hc"]
 [ext_resource type="Script" uid="uid://cjmmhbp1b5312" path="res://addons/StyleboxFancy/StyleBorder.gd" id="2_yrr17"]
 [ext_resource type="Script" uid="uid://bkl6g25jwb47h" path="res://addons/StyleboxFancy/StyleBoxFancy.gd" id="3_volwe"]
-[ext_resource type="AudioStream" uid="uid://bcngvdb8on0eb" path="res://assets/Sound/351565__bertrof__game-sound-incorrect-organic-violin.wav" id="5_htquq"]
 
 [sub_resource type="Resource" id="Resource_thnqs"]
 script = ExtResource("2_yrr17")
@@ -75,7 +74,3 @@ label_settings = SubResource("LabelSettings_lhpvc")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_f0avt")
-
-[node name="BarOverflow" type="AudioStreamPlayer2D" parent="." unique_id=1298588505]
-stream = ExtResource("5_htquq")
-volume_db = -5.0
